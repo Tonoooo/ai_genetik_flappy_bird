@@ -1,0 +1,100 @@
+# Ini adalah neat modul, dan ini disebut file konfigurasi
+# ini semacam pengaturan semua variabel dan paramater untuk menjalankan algoritma
+# ini hal yang terpenting setiap kali membuat projek neat
+# penjelasannya ada di NEAT dokumentasi =>  https://neat-python.readthedocs.io/en/latest/config_file.html
+
+# individu disini disebut burung (hanya untuk mudah dipahami saja)
+# node adalah neural(itu yang bulet bulet)
+# mutasi adalah perubahan materi genetik yang dapat diwariskan pada keturunannya(burung baru dari burung sebelumnya(keturunannya lah))
+
+[NEAT] # Bagian NEAT menentukan parameter khusus pada algoritma NEAT generik atau percobaan itu sendiri. Bagian ini selalu diperlukan, dan ditangani oleh Configkelas itu sendiri.
+fitness_criterion     = max # untuk menyingkirkan burung terburuk/fungsi untuk menentukan burung terbaik. jadi ini mengambil burung dengan nilai fitnes terbaik dan menyingkirkan burung yang buruk. Nilai yang diperbolehkan adalah: min, max, danmean
+fitness_threshold     = 100 # tingkatfitness apa yang ingin kita capai sebelum mengakhiri program. contohnya ini jika ada burung yang memiliki nilai fitnis nya 100 maka tidak perlu dikembangbiakan/diperbanyak lagi karna burung ini sudah sangat bagus jadi cukup brung itu saja
+pop_size              = 100 # Jumlah individu dalam setiap generasi. contohnya ini 100 berarti disebuah populasi/generasi hanya terdapat 100 burung saja
+reset_on_extinction   = False #Jika ini bernilai True, ketika semua spesies punah secara bersamaan karena stagnasi, populasi acak baru akan dibuat. Jika False, CompleteExtinctionExceptionakan dilempar.
+                              #sebenarnya yang dilakukan ini di neat adl memisahkan jenis yang berbeda arsitektur dari semua populasi kedalam sebuah spesies, ada spesies burng yang memiliki hiden layers 1/2/brp dan ada burung yang
+                              #memiliki node dan ada juga burung yang standar, katakanlah seolaholah semua spesies yang punah, apakah kita akan menyetel ulang nilai
+
+[DefaultGenome]
+"""semua anggota populasi disebut genom,dan genom memiliki sifat yang berbeda, genom memiliki node dan gen(node=neural(itu yang bulet bulet).gen=koneksi antara node).
+jadi ini pengaturan awal default genom, setiap anggota populasi dimulai dengan nilai nilai ini"""
+# node activation options
+activation_default      = tanh # fungsi aktivasi yang akan digunaka.Jika tidak ada yang diberikan, atau "random" ditentukan, salah satu activation_options akan dipilih secara acak.
+activation_mutate_rate  = 0.0 # fungsi aktivasi acak ingin berpa persen.misal 0.1 berarti 10% yng artinya setiapkali kita membuat anggota populasi baru mereka akan medapatkan random aktivasi yang berbeda sebesar 10% .nilai yg boleh=0.0 sampai 1.0 (0.0=0%, 0.5=50%,1.0=100%)
+activation_options      = tanh # menentukan fungsi aktifasi selain activation_default
+
+# node aggregation options
+aggregation_default     = sum # Atribut fungsi agregasi default ke node baru . sum=jumlah
+aggregation_mutate_rate = 0.0 #Probabilitas bahwa mutasi akan menggantikan fungsi agregasi node dengan randomly-determinedanggota aggregation_options. Nilai yang valid ada di [0.0, 1.0].
+aggregation_options     = sum # menentukan aggregation lain.
+                      #Fungsi yang tersedia adalah: sum, product, min, max, mean, median, dan maxabs
+
+# node bias options
+bias_init_mean          = 0.0 #Rata-rata dari distribusi normal/gaussian, jika digunakan untuk membiaskan nilai atribut untuk node baru
+bias_init_stdev         = 1.0 #Standar deviasi dari distribusi normal/gaussian, jika digunakan untuk memilih nilai bias untuk node baru.
+bias_max_value          = 30.0 # Nilai bias maksimum yang diizinkan
+bias_min_value          = -30.0 #Nilai bias minimum yang diizinkan.
+bias_mutate_power       = 0.5 #Standar deviasi dari distribusi normal/gaussian nol-pusat dari mana mutasi nilai bias diambil.
+bias_mutate_rate        = 0.7 #Probabilitas mutasi akan mengubah bias sebuah node dengan menambahkan nilai acak.
+bias_replace_rate       = 0.1 # Probabilitas mutasi akan menggantikan bias sebuah node dengan chosen nilai acak baru (seolah-olah itu adalah node baru).
+"""bias_mutate_power,bias_mutate_rate,bias_replace_rate adalah seberapa besar hal hal yang akan berubah ketika kita bermutasi dan berkembangbiak dan
+membuat populasi burung baru lagi. biarkan saja bergitu ,kecuali jika ingin dikacaukan silakan saja"""
+
+# genome compatibility options
+compatibility_disjoint_coefficient = 1.0 # ini default
+compatibility_weight_coefficient   = 0.5 # ini default
+
+# connection add/remove rates
+conn_add_prob           = 0.5 # Probabilitas mutasi akan menambah koneksi antar node yang ada . Nilai yang valid ada di [0.0, 1.0].
+                               # jadi seberapa besar kemungkinan untuk menambahkan koneksi baru.(0.0=0%, 0.5=50%,1.0=100%)
+conn_delete_prob        = 0.5 # Probabilitas bahwa mutasi akan menghapus koneksi yang ada. Nilai yang valid ada di [0.0, 1.0].
+                               # jadi seberapa besar kemungkinan untuk menghapus koneksi baru.(0.0=0%, 0.5=50%,1.0=100%)
+
+# connection enable options
+enabled_default         = True # kita dapat memiliki koneksi diaktifkan / tidak diaktifkan. ini true berarti koneksi nya diaktifkan
+enabled_mutate_rate     = 0.01 # berapa kemungkinan untuk koneksi yang tidak aktif. contoh ini 0.01=1% kemungkinan tidak aktif koneksinya
+
+feed_forward            = True # Jika ini dievaluasi menjadi True, jaringan yang dihasilkan tidak akan diizinkan untuk memiliki koneksi berulang (mereka akan menjadi feedforward ). Kalau tidak, mereka mungkin (tetapi tidak dipaksa) berulang.
+initial_connection      = full # setiap lapisan/node yang terhubung. conothnya ini full berarti sepenuhnya terhubung
+
+# node add/remove rates
+node_add_prob           = 0.2 # kemungkinan untuk menambah node. contoh ini 0.2=20% kemungkinan node nya akan bertambah
+node_delete_prob        = 0.2 # kemungkinan untuk mengurangi node. contoh ini 0.2=20% kemungkinan node nya akan berkurang
+
+# network parameters # mengatur default lapisan neuran
+num_hidden              = 0 # lapisan tersembunyi/tengah
+num_inputs              = 3 # lapisan input
+num_outputs             = 1 # lapisan output
+
+# node response options
+response_init_mean      = 1.0
+response_init_stdev     = 0.0
+response_max_value      = 30.0
+response_min_value      = -30.0
+response_mutate_power   = 0.0
+response_mutate_rate    = 0.0
+response_replace_rate   = 0.0
+
+# connection weight options
+weight_init_mean        = 0.0
+weight_init_stdev       = 1.0
+weight_max_value        = 30
+weight_min_value        = -30
+weight_mutate_power     = 0.5
+weight_mutate_rate      = 0.8
+weight_replace_rate     = 0.1
+
+[DefaultSpeciesSet]
+compatibility_threshold = 3.0
+
+[DefaultStagnation]
+species_fitness_func = max # kita mengambil fitness yang paling max/besar dari suatu spesies
+max_stagnation       = 20 # contohnya jika 20 generasi berlalu namun fitness tidak meningkat sama sekali maka kita akan menghilangkan spesies itu
+species_elitism      = 2
+
+[DefaultReproduction]
+elitism            = 2
+survival_threshold = 0.2
+
+### semua yang ada disini variabel parameter ini hanya sebagian, jika ingin mengetahui lebih banyak
+### dan penjelasannya ada disini => https://neat-python.readthedocs.io/en/latest/config_file.html

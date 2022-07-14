@@ -1,0 +1,26 @@
+~~~~~~~~~~~~~~~ INI PROJEK MENERAPKAN ALGORITMA GENETIK PADA GAME FLAPPY BIRD ~~~~~~~~~~~~~~~~~~
+
+~~~~~~~Penjelasan:
+    Algoritma Genetika merupakan Teknik untuk menemukan solusi optimal dari permasalahan yang
+mempunyai banyak solusi. Teknik ini akan melakukan pencarian dari beberapa solusi yang 
+diperoleh sampai mendapatkan solusi terbaik sesuai dengan kriteria yang telah ditentukan atau 
+yang disebut sebagai fungsi fitness.Algoritma Genetika Yang akan kita gunakan adalah NEAT.
+
+    NEAT (NeuroEvolution of Augmenting Topologies) adalah algoritma evolusioner yang menciptakan 
+jaringan saraf tiruan. Dalam implementasi NEAT-Python saat ini, populasi genom individu dipertahankan.
+
+Penjelasan cara kerja ada divideo: https://youtu.be/OGHA-elMrxI
+
+~~~~~~~~~~~~~~~~~~ Penjelsan yang mudah dimengerti ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Algoritma Genetika/Genetic Algorithm (GA) adalah bagian dari Evolutionary Algorithm yaitu suatu
+algoritma yang mencontoh proses evolusi alami dimana konsep utamanya adalah individu-individu yang paling
+unggul akan bertahan hidup,sedangkan individu-individu yang lemah akan punah. Keunggulan individu-individu
+ini diuji melalui suatu fungsi yang dikenal sebagai fitness function. Fitness dalam GA didefinisikan
+sebagai gambaran kelayakan suatu solusi terhadap suatu permasalahan. Fitness Function akan menghasilkan
+suatu nilai fitness value yang akan menjadi referensi untuk proses GA selanjutnya.(fitness function lah salah satu
+yang berperanan penting, contohnya burung akan membaik terusmenurus dikarenakan fitness funtion)
+
+    Jadi algoritma ini akan mengambil burung(individu) terbaik dari satu populasi,dan membuang burung
+yang lebih buruk. Dari burung terbaik itu akan dibanyakan/digandakan lalu dilatih, jika ada burung
+yang terbaik dari populasi itu maka akan dibanyakan/digandakan lalu dilatih lagi, terus menerus
+sampai sesuatu yang ingin dicapai.
