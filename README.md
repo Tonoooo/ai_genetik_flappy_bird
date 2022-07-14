@@ -6,7 +6,7 @@ mempunyai banyak solusi. Teknik ini akan melakukan pencarian dari beberapa solus
 diperoleh sampai mendapatkan solusi terbaik sesuai dengan kriteria yang telah ditentukan atau 
 yang disebut sebagai fungsi fitness.Algoritma Genetika Yang akan kita gunakan adalah NEAT.
 
-    NEAT (NeuroEvolution of Augmenting Topologies) adalah algoritma evolusioner yang menciptakan 
+NEAT (NeuroEvolution of Augmenting Topologies) adalah algoritma evolusioner yang menciptakan 
 jaringan saraf tiruan. Dalam implementasi NEAT-Python saat ini, populasi genom individu dipertahankan.
 
 Penjelasan cara kerja ada divideo: https://youtu.be/OGHA-elMrxI
